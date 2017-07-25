@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50715
 File Encoding         : 65001
 
-Date: 2017-07-15 23:44:37
+Date: 2017-07-26 00:24:52
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -51,22 +51,7 @@ CREATE TABLE `member` (
   `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '创建时间',
   `code` varchar(150) NOT NULL DEFAULT '' COMMENT '邀请码',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
-
--- ----------------------------
--- Table structure for money_record
--- ----------------------------
-DROP TABLE IF EXISTS `money_record`;
-CREATE TABLE `money_record` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `collect_mid` int(10) NOT NULL DEFAULT '0' COMMENT '收赏人',
-  `reward_mid` int(10) NOT NULL DEFAULT '0' COMMENT '打赏人',
-  `money` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '打赏金额',
-  `create_time` int(10) NOT NULL COMMENT '创建时间',
-  `type` tinyint(1) NOT NULL DEFAULT '1' COMMENT '记录类型（1打赏、2提现）',
-  `pid` int(10) NOT NULL DEFAULT '0' COMMENT ' 打赏的图片ID',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Table structure for picture
@@ -82,7 +67,21 @@ CREATE TABLE `picture` (
   `media_id` varchar(100) NOT NULL DEFAULT '' COMMENT '旧图片media_id',
   `new_media_id` varchar(100) NOT NULL DEFAULT '' COMMENT '新图片media_id',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Table structure for reward
+-- ----------------------------
+DROP TABLE IF EXISTS `reward`;
+CREATE TABLE `reward` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `collect_mid` int(10) NOT NULL DEFAULT '0' COMMENT '收赏人',
+  `reward_mid` int(10) NOT NULL DEFAULT '0' COMMENT '打赏人',
+  `money` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '打赏金额',
+  `create_time` int(10) NOT NULL COMMENT '创建时间',
+  `pid` int(10) NOT NULL DEFAULT '0' COMMENT ' 打赏的图片ID',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Table structure for user
@@ -95,4 +94,17 @@ CREATE TABLE `user` (
   `level` tinyint(1) NOT NULL DEFAULT '2' COMMENT '等级',
   `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Table structure for withdrawals
+-- ----------------------------
+DROP TABLE IF EXISTS `withdrawals`;
+CREATE TABLE `withdrawals` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `mid` int(10) NOT NULL DEFAULT '0' COMMENT '提现申请人ID',
+  `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '提现申请时间',
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '申请中0，提现成功1，提现失败2，不批准3',
+  `money` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '提现金额',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;

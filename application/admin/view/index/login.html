@@ -19,9 +19,9 @@
                                     <input class="form-control" placeholder="密码" name="pwd" type="password" value="">
                                 </div>
                                 <div class="checkbox">
-                                    <img src="{:captcha_src()}" alt="captcha" style="width: 180px;"/>
+                                    <img src="{:captcha_src()}" alt="captcha" onclick="this.src='{:captcha_src()}'" style="width: 170px;"/>
                                     <label style="width: 130px;">
-                                        <input class="form-control" placeholder="请输入验证码" name="captcha" type="text" value="">
+                                        <input class="form-control" placeholder="输入验证码" name="captcha" type="text" value="">
                                     </label>
                                     <!--<label>-->
                                         <!--<input name="remember" type="checkbox" value="Remember Me">下次自动登录-->

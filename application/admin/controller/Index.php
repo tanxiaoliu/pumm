@@ -2,6 +2,7 @@
 namespace app\admin\controller;
 
 use Qiniu\Http\Request;
+use think\captcha\Captcha;
 use think\Controller;
 use think\Db;
 use think\Session;
@@ -26,7 +27,47 @@ class Index extends Controller {
      */
     function withdrawals()
     {
-        $list = Db::table('withdrawals')->select();
+        $list = Db::table('withdrawals')->order('id desc')->select();
+        $this->assign('list', $list);
+        return $this->fetch();
+    }
+
+    /**
+     * 会员列表
+     */
+    function member()
+    {
+        $list = Db::table('member')->order('id desc')->select();
+        $this->assign('list', $list);
+        return $this->fetch();
+    }
+
+    /**
+     * 打赏记录
+     */
+    function reward()
+    {
+        $list = Db::table('reward')->order('id desc')->select();
+        $this->assign('list', $list);
+        return $this->fetch();
+    }
+
+    /**
+     * 图片记录
+     */
+    function picture()
+    {
+        $list = Db::table('picture')->order('id desc')->select();
+        $this->assign('list', $list);
+        return $this->fetch();
+    }
+
+    /**
+     * 用户列表
+     */
+    function user()
+    {
+        $list = Db::table('user')->order('id desc')->select();
         $this->assign('list', $list);
         return $this->fetch();
     }
