@@ -1,0 +1,50 @@
+﻿{
+    "button":[
+		{
+            "name": "生成打赏", 
+            "sub_button": [                
+                {
+                    "type": "pic_photo_or_album", 
+                    "name": "上传照片", 
+                    "key": "rselfmenu_1_1", 
+                    "sub_button": [ ]
+                },
+				{	
+				   "type":"view",
+				   "name":"生成说明",
+				   "url":"http://laoit.top/pumm/public/index.php/index/Index/createExplain"
+				}
+            ]
+        }, 
+		{
+           "name":"收获赏金",
+           "sub_button":[
+				{	
+				   "type":"view",
+				   "name":"赏金提现",
+				   "url":"http://laoit.top/pumm/public/index.php/index/Index/withdrawals"
+				},
+				{	
+				   "type":"view",
+				   "name":"我的赏金",
+				   "url":"http://laoit.top/pumm/public/index.php/index/Index/myReward"
+				}
+			]
+		},
+		{
+           "name":"遇到问题",
+           "sub_button":[
+				{	
+				   "type":"view",
+				   "name":"邀请码",
+				   "url":"http://laoit.top/pumm/public/index.php/index/Index/invite"
+				},
+				{	
+				   "type":"view",
+				   "name":"寻求帮助",
+				   "url":"http://laoit.top/pumm/public/index.php/index/Index/contact"
+				}
+			]
+       }
+	]
+}

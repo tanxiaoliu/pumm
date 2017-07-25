@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>打赏</title>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	{load href="/static/css/bootstrap2.min.css" /}
+	{load href="/static/css/bootstrap-theme.min.css" /}
+	{load href="/static/css/bootstrap-table.min.css" /}
+	{load href="/static/css/exceptional.css" /}
+</head>
+<body>
+<div id="main">
+	<input style="display:none" type="text" id="mid" value="">
+	<input style="display:none" type="text" id="pid" value="">
+	<div id="imask">
+	</div>
+	<div id="show_exception" class="radius_style">
+		<div id="top_logo">
+		</div>
+		<div id="delete_icon">
+		</div>
+		<p id="font_content">
+			你需要注意:该内容赏金责任归个人
+		</p>
+		<div id="input_module">
+			<input id="r_input" type="text" class="radius_style input_style" value="{$config->mini_reward}" placeholder="请输入要打赏的金额" onkeyup="judgnum(this);">
+			<input id="show_input" type="text" class="radius_style input_style" value="元" readonly="true">
+			<button type="button" class="radius_style" onclick="dashang()">打赏</button>
+			<p id="botton_font">
+				<a href="code">我也要生成打赏图片 》</a>
+			</p>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+<script>
+	function judgnum() {
+//		alert(1);
+	}
+	function dashang() {
+		alert('打赏成功');
+	}
+</script>

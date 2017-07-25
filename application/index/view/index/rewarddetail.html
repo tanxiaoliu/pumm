@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0086)http://xinhoupu.com/reward/module/jsp/myCash/cashDetail.jsp?imageid=201706011702179500 -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--<base href="http://xinhoupu.com:80/reward/">--><base href=".">
+    <title>赏金详情</title>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="This is my page">
+    {load href="/static/css/common.css" /}
+    {load href="/static/css/initial.css" /}
+    {load href="/static/css/cashdetail.css" /}
+    {load href="/static/js/jquery-1.11.1.js" /}
+    {load href="/static/js/bootstrap.min.js" /}
+</head>
+<body>
+<div class="cashdetail-banner">
+    <div class="banner-column">
+    </div>
+    <div class="user-photo" id="bigphoto" style="background: url(http://ot53umm7t.bkt.clouddn.com/{$image|default="/static/images/person_pic.png"}) 0% 0% / cover no-repeat;">
+    </div>
+    <p class="cash-total" id="cash-total">
+        <span class="cash-total-ico">￥</span>{$money}
+    </p>
+</div>
+<h5 class="cashdetail-title">赏金详情</h5>
+<div class="cashdetail-list">
+    <ul class="cashdetail-list-ul" id="cashdetailul">
+        {volist name="reward" id="vo"}
+        <li class="cashdetaillist-listbar">
+            <div class="cashdetaillist-column">
+            </div>
+            <div id="head0" class="cashdetaillist-column-userpoto" style="background: url({$vo.headimgurl|default="/static/images/avatars1.png"});background-repeat: no-repeat;
+            background-size: 108px 108px;">
+            </div>
+            <div class="cashdetaillist-column2">
+                <span id="0" class="cashdetaillist-username">{$vo.nickname}</span>
+                <p class="cashdetaillist-money">
+                    <span class="cashdetaillist-moneyico">￥</span>{$vo.money}
+                </p>
+                <lable class="cashdetaillist-date-ico"></lable>
+                <p class="cashdetaillist-date">
+                    {$vo.create_time|date='Y-m-d H:i:s',###}
+                </p>
+            </div>
+        </li>
+        {/volist}
+    </ul>
+</div>
+</body>
+</html>

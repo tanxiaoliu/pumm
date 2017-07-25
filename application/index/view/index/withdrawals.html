@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>赏金提现</title>
+	<meta name="viewport" content="width=device-width,user-scalable=no">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	{load href="/static/css/common.css" /}
+	{load href="/static/css/initial.css" /}
+	{load href="/static/css/mycash.css" /}
+	{load href="/static/css/cashWithdrawal.css" /}
+</head>
+
+<body style="zoom: 2.97344; display: block;">
+<input type="text" class="userid" id="userid" style="display:none;" value="">
+
+<div class="banner clearfloat">
+	<div class="banner-headphoto" id="userphoto" style="background-image: url({$member.headimgurl|default="/static/images/person_pic.png"});"></div>
+	<div class="banner-nickname" id="username">{$member->nickname}</div>
+</div>
+<div class="withdrawallist">
+	<div class="withdrawallist-column">
+	</div>
+	<div class="withdrawallist-right">
+		<p class="withdrawallist-total">
+			账户当前余额： <span class="withdrawallist-total-money" id="total-money">{$member.money}</span>
+		</p>
+		<p class="withdrawallist-extractable">
+			最高可提现金额： <span class="withdrawallist-extractable-money" id="extractable-money">{$number}</span>
+		</p>
+		<div class="withdrawallist-withdrawalbar">
+			<lable class="withdrawallist-care-ico"></lable>
+			<p class="withdrawallist-care-title">
+				温馨提示
+			</p>
+			<p class="withdrawallist-care-content" style="margin-bottom:15px;">
+				单次提现金额不少于{$config->mini_withdrawals}且是{$config->mini_withdrawals}的整数倍即可提现,提现需支付{$config->withdrawals}%的手续费用
+			</p>
+			<input type="text" id="withdrawalmoney" class="withdrawalmoney" placeholder=" 请输入提现金额">
+			<span class="withdrawalmoney-tip">元</span>
+			<button class="withdrawal-btn" onclick="">提现</button>
+			<a href="withdrawalsExplain" class="withdrawal-tip">提现说明 ></a>
+		</div>
+	</div>
+</div>
+<div class="tips"></div>
+
+</body></html>
+{load href="/static/js/jquery-1.11.1.js" /}
+{load href="/static/js/bootstrap.min.js" /}
+<script>
+	$(function() {
+		$(window).bind('resize load', function() {
+		$("body").css("zoom", $(window).width() / 640);
+		$("body").css("display", "block");
+		});
+	})
+</script>
+
